@@ -39,7 +39,8 @@ const calcuateDeviation = async(req, res) => {
             success: true,
             data: {
                 coin,
-                standardDeviation
+                standardDeviation,
+                messsage: `Standard deviation calculated for ${totalPriceRecords} prices`
             }
         });
 
