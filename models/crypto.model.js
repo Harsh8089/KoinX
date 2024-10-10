@@ -21,6 +21,10 @@ const cryptoSchema = new mongoose.Schema({
             ref: 'PriceHistory' 
         }
     ],
+    price_change_24h: {
+        type: Number,
+        required: true,
+    },
     market_cap: {
         type: Number,
         required: true,
