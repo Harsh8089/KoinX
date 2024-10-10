@@ -14,3 +14,6 @@
 
 Since there are only 2 prices in the image, the standard deviation comes out to be 0. (no variance / difference in prices)
 
+Render Links:
+https://koinx-0jk4.onrender.com/api/v1/stats/bitcoin
+https://koinx-0jk4.onrender.com/api/v1/deviation/bitcoin
