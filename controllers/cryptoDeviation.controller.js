@@ -20,9 +20,9 @@ const calculateStandardDeviation = (prices) => {
 const calcuateDeviation = async(req, res) => {
     try {
         const { coin } = req.params;
-        const document = await Crypto.find({id: coin}).populate('price_history').sort({ timeStamp: -1 });
-    
-        if(!document || document.length == 0) {
+        let document = await Crypto.find({id: coin}).populate('price_history').sort({ timeStamp: -1 });
+        document = document[0];
+        if(!document || !document.price_history || document.price_history.length == 0) {
             return res.status(404).json({
                 success: false,
                 message: `No records found for ${coin}`
@@ -33,6 +33,7 @@ const calcuateDeviation = async(req, res) => {
         if(totalPriceRecords > 100) totalPriceRecords = 100;  
         
         const recentPrices = document.price_history.slice(0, totalPriceRecords).map(record => record.price);
+        // console.log(recentPrices);
         const standardDeviation = calculateStandardDeviation(recentPrices);
 
         return res.status(200).json({
