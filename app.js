@@ -8,7 +8,7 @@ app.use(express.json());
 
 // Task-1
 import { saveCryptoData } from './controllers/cryptoPriceBackground.controller.js';
-setInterval(saveCryptoData, 5000); // saveCryptoData will be called at every 2 hr gap.
+setInterval(saveCryptoData, 2*60*60*1000); // saveCryptoData will be called at every 2 hr gap.
 
 saveCryptoData();
 
